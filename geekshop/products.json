@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Привет, цикл for!",
+        "price": "999",
+        "description": "Я файл из *.json!",
+        "image": "/static/img/dop_inf.png"
+    },    
+    {
+        "name": "Шаурма",
+        "price": "999",
+        "description": "Я файл из *.json! (А вообще, тут должен был быть цикл for)",
+        "image": "/static/img/dop_inf.png"
+    },   
+    {
+        "name": "Бургеры",
+        "price": "999",
+        "description": "Я файл из *.json! (А вообще, тут должен был быть цикл for)",
+        "image": "/static/img/dop_inf.png"
+    },   
+    {
+        "name": "Картофель",
+        "price": "999",
+        "description": "Я файл из *.json! (А вообще, тут должен был быть цикл for)",
+        "image": "/static/img/dop_inf.png"
+    },   
+    {
+        "name": "Нагетсы",
+        "price": "999",
+        "description": "Я файл из *.json! (А вообще, тут должен был быть цикл for)",
+        "image": "/static/img/dop_inf.png"
+    }   
+]

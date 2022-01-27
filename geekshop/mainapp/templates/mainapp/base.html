@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+</head>
+<body>
+	<header>
+		<div class="head_block1">
+			<div class="wrapper_header">
+				<div class="head_block_osn">
+					<div class="head_block1_top">
+						<a href="{% url 'main' %}" class="logo">
+							<img src="{% static "img/logo.jpg" %}" alt="">
+							<div class="textlogo"><p>Те самые парадные<br>в Питере!</p></div>
+						</a>
+						<div class="head_block1_top2">
+							<div class="social_head">
+								<a href="#"><img src="{% static "img/vk.jpg" %}" alt=""></a>
+								<a href="#"><img src="{% static "img/inst.jpg" %}" alt=""></a>
+								<a href="#"><img src="{% static "img/inst.jpg" %}" alt=""></a>
+							</div>
+							<div class="head_menu">
+									<a href="{% url 'about' %}">О нас</a>
+									<a href="{% url 'contact' %}">Контакты</a>
+								</div>
+						</div>
+					</div>
+					<div class="head_block1_top3">
+						<div class="number"><p>8 800 200-20-20</p></div>
+					</div>
+				</div>
+			</div>
+			<div class="head_block1_bottom" id="objToStick">
+				<div class="wrapper_menu">
+					<a href="{% url 'main' %}" class="logo2">
+							<img src="{% static "img/logo2.jpg" %}" alt="">
+					</a>
+					<nav>
+						<div class="topnav" id="myTopnav">
+
+							<a href="#">{{ products.0.description }}</a>
+							{% for product in products %}
+							<a href="#">{{ product.name }}</a>
+							{% endfor %}
+							<a href="#">{{ title }}</a>
+
+						</div>
+					</nav>
+					<div class="burger_button"><img src="{% static "img/=.png" %}" alt=""></div>
+					<div class="head_block1_bottom1">
+						<div class="basket">
+							<div class="basket_price">
+								<p>500 руб</p>
+								<span><input type="text" value="0"> товара</span>
+							</div>
+							<img class="arrow" src="{% static "img/arrow.png" %}" alt="">
+							<a href="#" class="basket_button">
+								<img src="{% static "img/basket.png" %}" alt="">
+								<p>Корзина</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+{% block content %}
+	Здесь будет контент
+{% endblock %}
+
+    <footer>
+        <div class="wrapper">
+            <div class="footer_info">
+                <div class="footer_block1">
+                    <div class="social_footer">
+                            <a href="#"><img src="{% static "img/vk.png" %}" alt=""></a>
+                            <a href="#"><img src="{% static "img/inst.png" %}" alt=""></a>
+                            <a href="#"><img src="{% static "img/inst.png" %}" alt=""></a>
+                    </div>
+                    <div class="nav_footer">
+                        <a href="{% url 'about' %}">О нас</a>
+						<a href="{% url 'contact' %}">Контакты</a>
+                        <a href="#">Политика конфидециальности</a>
+                    </div>	
+                </div>
+                <div class="footer_block2">
+                    <div class="footer_contact">
+                            <div class="footer_number">8 812 000-00-00</div>
+                            <div class="footer_mail">send@ashevchuk.ru</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_info2">
+                <p>©{% now "Y" %}, COMECOMICS</p>
+                <img src="{% static "img/logotip2.png" %}" alt="">
+                <p>Разработано: DokinLab & Aleksey Shevchuk</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static "js/script.js" %}"></script>
+</html>
