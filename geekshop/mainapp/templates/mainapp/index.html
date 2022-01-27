@@ -1,93 +1,271 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Магазин</title>
-	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
-	<link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.css">
-</head>
-<body>
-	<div class="container">
-		<div class="slider">
-			<div class="header clearfix">
-				<a href="/" class="logo"></a>
-				<ul class="menu">
-					<li><a href="/" class="active">домой</a></li>
-					<li><a href="/products/">продукты</a></li>
-					<li><a href="/contact/">контакты</a></li>
-				</ul>
-				<a href="#" class="search"></a>
-			</div>
-			<div class="text-slider">
-				<h3 class="green">тенденции</h3>
-				<h3 class="big"> удобные стулья</h3>
-				<p>Новый уровень комфорта. Отличные характеристики.</p>
-				<a href="#" class="button-order">заказать <img src="/static/img/arrow.png" alt=""></a>
-			</div>	
-			<div class="navi">
-				<a href="#"></a><a href="#"></a><a href="#"></a>
-			</div>
-		</div>
+{% extends 'mainapp/base.html' %}
+{% load static %}
 
-		<div class="featured">
-			<div class="featured-menu">
-					<a class="active" href="#">Популярные</a><a href="#">Новинки</a>
+{% block content%}
+<main>
+	<div class="mobile-korzina">
+		<a href="#">
+			<div class="block-mobile-korzina">
+				<img src="{% static "img/basket-mob.png" %}" alt="">
 			</div>
-			<a class="explore" href="#">показать все <img src="/static/img/arrow.png" alt=""></a>
-			<div class="clearfix">
-			</div>
-			<div class="tab-content">
-				<div class="block">
-					<a href="#"><img src="/static/img/product-1.jpg" alt=""> 
-						<div class="text">
-							<img src="/static/img/icon-hover.png" alt="img">
-							<h4>Отличный стул</h4>
-							<p>Расположитесь комфортно. </p>
-						</div> 
-					</a>
-				</div>
-				<div class="block">
-					<a href="#"><img src="/static/img/product-2.jpg" alt="">
-						<div class="text">
-							<img src="/static/img/icon-hover.png" alt="">
-							<h4>Стул повышенного качества</h4>
-							<p>Не оторваться. </p>
-						</div>
-					</a>
-				</div>	
-			</div>
-		</div>
-		
-		<div class="clr"></div>
-
+			<div class="num-position">5</div>
+		</a>
 	</div>
-
-    <div class="footer">
-        <div class="clearfix">
-            <div class="text-footer">
-                <h3>контакты</h3>
-            </div>
-            <div class="text-footer">
-                <h3>полезная информация</h3>
-            </div>
-            <div class="text-footer clearfix">
-                <h3>Оставайтесь на связи</h3>
-                <p>Подписаться на новости и рассылки</p>
-                <form>
-                    <input type="email" name="email" placeholder="ваш email">
-                    <a href="#"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></a>
-                </form>
-            </div>
-        </div>
-        <p class="small">&copy; GB 2017</p>
-        <div class="social">
-            <a href="#" class="social1"></a>
-            <a href="#" class="social2"></a>
-            <a href="#" class="social3"></a>
-            <a href="#" class="social4"></a>
-        </div>
-        <p class="small">Положения &amp; Условия  /  Конфиденциальность &amp; Cookies</p>
-    </div>	
-	
-</body>
-</html>
+	<div class="fon_slider">
+			<div id="viewport">
+				<div id="slidewrapper">
+					<li class="slide"><img src="{% static "img/slider_1.jpg" %}" alt="" class="slide-img"></li>
+					<li class="slide"><img src="{% static "img/slider_2.jpg" %}" alt="" class="slide-img"></li>
+					<li class="slide"><img src="{% static "img/slider_3.jpg" %}" alt="" class="slide-img"></li>
+				</div>
+				<div class="buttom_slider">
+					<div id="prev-btn"><img src="{% static "img/prev-btn.png" %}" alt=""></div>
+					<div id="next-btn"><img src="{% static "img/next-btn.png" %}" alt=""></div>
+				</div>
+				<ul class="nav-btns">
+					<li class="slide-nav-btn"></li>
+					<li class="slide-nav-btn"></li>
+					<li class="slide-nav-btn"></li>
+				</ul>
+			</div>	
+	</div>
+	<div class="line_brand"><img src="{% static "img/logotip.png" %}" alt=""></div>
+	<div class="products_block">
+		<div class="wrapper">
+			<h2>Бургеры</h2>
+			<div class="item_product">
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<button class="knopka_basket" href="#">В корзину</button>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="block-btn-basket">
+								<div class="btn-plus-minus">
+									<span class="btn-minus"><img src="{% static "img/-.png" %}" alt=""></span>
+									<input type="text" value="0">
+									<span class="btn-plus"><img src="{% static "img/+.png" %}" alt=""></span>
+								</div>
+								<div class="knopka_basket2" href="#">Корзина</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="products_block">
+		<div class="wrapper">
+			<h2>Шаурма</h2>
+			<div class="item_product">
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="block_pruduct1">
+						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
+						<div class="basket_img"></div>
+					</div>
+					<div class="block_pruduct2">
+						<div class="name_product">
+							<div class="name"><p>Дабл Делюкс</p></div>
+							<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt=""></div>
+						</div>
+						<div class="description_product"><p>Лаваш, курица, томаты, огурцы свежие, лук маринованный , соус фирменный, перец Халапенью</p></div>
+						<div class="price_product">
+							<p>179</p>
+							<img src="{% static "img/rub.png" %}" alt="">
+							<div class="knopka_basket" href="#">В корзину</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{% endblock %}

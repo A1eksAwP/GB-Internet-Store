@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Конвеер</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+</head>
+<body>
+	<div id="modal1" class="modal_div">
+      <span class="modal_close"><img src="/static/img/closeX.png" alt=""></span>
+      <form action="">
+      	<div class="dostavka">
+      		<div class="text_dostavka">Куда доставить?</div>
+      		<div class="block_button">
+      			<a class="na_dostavku open_modal" href="#modal1">Доставка</a>
+      			<a class="samovivoz open_modal" href="#modal2">Самовывоз</a>
+      		</div>
+      		<div class="street_home">
+      			<div class="street">
+      				<input type="text" id="street" placeholder="Улица" name="street" value>
+      			</div>
+      			<div class="home">
+      				<input type="text" id="building" placeholder="Дом" name="building" value>
+      			</div>
+      		</div>
+      		<div class="other">
+      			<div class="other_field">
+      				<input type="text" id="" placeholder="Квартира" name="" value>
+      			</div>
+      			<div class="other_field">
+      				<input type="text" id="" placeholder="Подъезд" name="" value>
+      			</div>
+      			<div class="other_field">
+      				<input type="text" id="" placeholder="Код двери" name="" value>
+      			</div>
+      			<div class="other_field">
+      				<input type="text" id="" placeholder="Этаж" name="" value>
+      			</div>
+      		</div>
+      		<div class="comment">
+      			<textarea name="comment" id="comment" placeholder="Комментарий"></textarea>
+      		</div>
+      		<button class="confirm_address">Подтвердить адресс</button>
+      	</div>
+      </form>
+      <div class="line_modal"></div>
+	</div>
+	<div id="modal2" class="modal_div1"> 
+      <span class="modal_close"><img src="/static/img/closeX.png" alt=""></span> 
+      <form action="">
+      	<div class="dostavka">
+      		<div class="text_dostavka">Куда доставить?</div>
+      		<div class="block_button">
+      			<a class="na_dostavku1 open_modal" href="#modal1">Доставка</a>
+      			<a class="samovivoz1 open_modal" href="#modal2">Самовывоз</a>
+      		</div>
+      		<div class="samovivoz_adress">
+      			<label>
+      				<span class="text_adress">г. Самара<br>ул. Дачная д.2<br>корпус 2<br>10:00-22:00</span>
+      			</label>	
+      		</div>
+      		<button class="choose">Выбрать</button>
+      	</div>
+      </form>
+      <div class="line_modal2"></div>
+	</div>
+	<div id="overlay"></div>
+	<div id="openModal" class="modalDialog">
+		<div class="wrapper">
+			<div class="modalHeader">
+				<div class="block-logo">
+					<img src="/static/img/logo2.png" alt="">
+					<img src="/static/img/konveer-modal.png" alt="">
+				</div>
+				<a href="#close" class="close"><img src="/static/img/close.png" alt=""></a>
+			</div>
+			<div class="modalContacts">
+				<a href="/about/">О нас</a>
+				<a href="/contact/">Контакты</a>
+			</div>
+			<div class="modalSocial">
+				<div class="numberModal">8 800 200-20-20</div>
+				<div class="socialModal">
+					<a href="#"><img src="/static/img/vk.png" alt=""></a>
+					<a href="#"><img src="/static/img/inst.png" alt=""></a>
+					<a href="#"><img src="/static/img/inst.png" alt=""></a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<header>
+		<div class="head_block1">
+			<div class="wrapper_header">
+				<div class="head_block_osn">
+					<div class="head_block1_top">
+						<a href="/" class="logo">
+							<img src="/static/img/logo.jpg" alt="">
+							<div class="textlogo"><p>Та самая Шаурма<br>в Самаре</p></div>
+						</a>
+						<div class="head_block1_top2">
+							<div class="social_head">
+								<a href="#"><img src="/static/img/vk.jpg" alt=""></a>
+								<a href="#"><img src="/static/img/inst.jpg" alt=""></a>
+								<a href="#"><img src="/static/img/inst.jpg" alt=""></a>
+							</div>
+							<div class="head_menu">
+									<a href="/about/">О нас</a>
+									<a href="/contact/">Контакты</a>
+								</div>
+						</div>
+					</div>
+					<div class="head_block1_top3">
+						<div class="number"><p>8 800 200-20-20</p></div>
+					</div>
+				</div>
+			</div>
+			<div class="head_block1_bottom" id="objToStick">
+				<div class="wrapper_menu">
+					<a href="/" class="logo2">
+							<img src="/static/img/logo2.jpg" alt="">
+					</a>
+					<nav>
+						<div class="topnav" id="myTopnav">
+							<a href="#">Шаурма</a>
+							<a href="#">Бургеры</a>
+							<a href="#">Картофель</a>
+							<a href="#">Куриные крылья</a>
+							<a href="#">Нагетсы</a>
+							<a href="#">Стейки</a>
+							<a href="#">Салаты</a>
+							<a href="#">Супы</a>
+							<a href="#">Закуски</a>
+							<a href="#">Напитки</a>
+						</div>
+					</nav>
+					<a href="#openModal" class="burger_button">
+						<img src="/static/img/=.png" alt="">
+					</a>
+					<div class="head_block1_bottom1">
+						<div class="basket">
+							<div class="basket_price">
+								<div class="basket_price_cost">
+									<p>5000</p><span>руб</span>
+								</div>
+								<div class="basket_price_count">
+									<p>100</p><span>товаров</span>
+								</div>		
+							</div>
+							<button class="arrow"><img src="/static/img/arrow.png" alt=""></button>
+							<a href="/cart/" class="basket_button">
+								<img src="/static/img/basket.png" alt="">
+								<p>Корзина</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="wrapper-basket">
+			<div class="big-basket">
+				<h2>Корзина</h2>
+				<form action="">
+					<table class="tablebasket tablebasket_mob">
+						<tbody>
+							<tr>
+								<td>Дабл делюкс</td>
+								<td>
+									<div class="btn-plus-minus">
+											<span class="btn-minus"><img src="/static/img/-.png" alt=""></span>
+											<input type="text" value="1">
+											<span class="btn-plus"><img src="/static/img/+.png" alt=""></span>
+										</div>
+								</td>
+								<td class="rub-img">159<span><img src="/static/img/rub.png" alt=""></span></td>
+								<td><img src="/static/img/X.png" alt=""></td>
+							</tr>
+							<tr>
+								<td>Дабл делюкс</td>
+								<td>
+									<div class="btn-plus-minus">
+										<button class="btn-minus"><img src="/static/img/-.png" alt=""></button>
+										<input type="number" value="1">
+										<button class="btn-plus"><img src="/static/img/+.png" alt=""></button>
+									</div>
+								</td>
+								<td>179<span><img src="/static/img/rub.png" alt=""></span></td>
+								<td><button class="remove_cart"><img src="/static/img/X.png" alt=""></button></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<h3>Рекомендуем попробовать</h3>
+			<div class="recommend_product">
+				<form action="">
+					<div class="rec_product">
+						<div class="img_rec"><img src="/static/img/free.jpg" alt=""></div>
+						<div class="rec_name">Картофель фри</div>
+						<div class="rec_price">179 <span><img src="/static/img/rub.png" alt=""></span></div>
+						<button class="knopka_basket">В корзину</button>
+					</div>
+				</form>
+				<form action="">
+					<div class="rec_product">
+						<div class="img_rec"><img src="/static/img/free.jpg" alt=""></div>
+						<div class="rec_name">Картофель фри</div>
+						<div class="rec_price">179 <span><img src="/static/img/rub.png" alt=""></span></div>
+						<button class="knopka_basket">В корзину</button>
+					</div>
+				</form>
+			</div>
+			<div class="order_price">Сумма заказа:<span>358</span><img src="/static/img/rub.png" alt=""></div>
+			<div class="nav_basket">
+				<button class="back_menu">Вернуться в меню</button>
+				<a href="#modal1" class="to_order open_modal">Заказать</a>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="wrapper">
+			<div class="footer_info">
+				<div class="footer_block1">
+					<div class="social_footer">
+							<a href="#"><img src="/static/img/vk.png" alt=""></a>
+							<a href="#"><img src="/static/img/inst.png" alt=""></a>
+							<a href="#"><img src="/static/img/inst.png" alt=""></a>
+					</div>
+					<div class="nav_footer">
+						<a href="/about/">О нас</a>
+						<a href="/contact/">Контакты</a>
+						<a href="#">Политика конфидециальности</a>
+					</div>	
+				</div>
+				<div class="footer_block2">
+					<div class="footer_contact">
+							<div class="footer_number">8 800 200-20-20</div>
+							<div class="footer_mail">info@komveer.ru</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer_info2">
+				<p>©2019, KONVEER</p>
+				<img src="/static/img/logotip2.png" alt="">
+				<p>Разработано DokinLab</p>
+			</div>
+		</div>
+		<div class="footer-line"></div>
+	</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/static/js/script.js"></script>
+</body>
+</html>

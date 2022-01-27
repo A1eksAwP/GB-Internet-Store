@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Конвеер</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+</head>
+<body>
+<header>
+	<div class="head_block1">
+		<div class="wrapper_header">
+			<div class="head_block_osn">
+				<div class="head_block1_top">
+					<a href="index.html" class="logo">
+						<img src="/static/img/logo.jpg" alt="">
+						<div class="textlogo"><p>Та самая Шаурма<br>в Самаре</p></div>
+					</a>
+					<div class="head_block1_top2">
+						<div class="social_head">
+							<a href="#"><img src="/static/img/vk.jpg" alt=""></a>
+							<a href="#"><img src="/static/img/inst.jpg" alt=""></a>
+							<a href="#"><img src="/static/img/inst.jpg" alt=""></a>
+						</div>
+						<div class="head_menu">
+								<a href="#">О нас</a>
+								<a href="#">Контакты</a>
+							</div>
+					</div>
+				</div>
+				<div class="head_block1_top3">
+					<div class="number"><p>8 800 200-20-20</p></div>
+				</div>
+			</div>
+		</div>
+		<div class="head_block1_bottom" id="objToStick">
+			<div class="wrapper_menu">
+				<a href="index.html" class="logo2">
+						<img src="/static/img/logo2.jpg" alt="">
+				</a>
+				<nav>
+					<div class="topnav" id="myTopnav">
+						<a href="#">Шаурма</a>
+						<a href="#">Бургеры</a>
+						<a href="#">Картофель</a>
+						<a href="#">Куриные крылья</a>
+						<a href="#">Нагетсы</a>
+						<a href="#">Стейки</a>
+						<a href="#">Салаты</a>
+						<a href="#">Супы</a>
+						<a href="#">Закуски</a>
+						<a href="#">Напитки</a>
+					</div>
+				</nav>
+				<a href="#openModal" class="burger_button">
+					<img src="/static/img/=.png" alt="">
+				</a>
+				<div class="head_block1_bottom1">
+					<div class="basket">
+						<div class="basket_price">
+							<div class="basket_price_cost">
+								<p>5000</p><span>руб</span>
+							</div>
+							<div class="basket_price_count">
+								<p>100</p><span>товаров</span>
+							</div>		
+						</div>
+						<button class="arrow"><img src="/static/img/arrow.png" alt=""></button>
+						<a href="#" class="basket_button">
+							<img src="/static/img/basket.png" alt="">
+							<p>Корзина</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<main>
+	<div class="wrapper-basket">
+		<div class="big-basket">
+			<div class="title_basket">
+				<h2>Заказ</h2>
+				<div class="stage_basket">
+					<div class="stage_none">
+						<div class="block_circle">1</div>
+						<div class="stage_text">Корзина</div>
+					</div>
+					<div class="stage">
+						<div class="block_circle">2</div>
+						<div class="stage_text">Оформление<br>заказа</div>
+					</div>
+					<div class="stage_none">
+						<div class="block_circle">3</div>
+						<div class="stage_text">Заказ<br>принят</div>
+					</div>
+				</div>
+			</div>
+			<div class="status_zakaz">
+				Статус заказа:<span> Принято</span>
+				<p>Ваш заказ принят! Ожидайте звонка, с Вами свяжуться в ближайшее время!</p>
+			</div>
+			<div class="zakaz_payment">
+				<div class="block_zakaz1">
+					<form class="form-horizontal ms2_form" id="msOrder" method="post">
+						<div class="input_block_zakaz">
+							<input type="text" id="receiver" placeholder="Имя"
+	                               name="receiver" value="{$form.receiver}"
+	                               class="form-control{($field in list $errors) ? ' error' : ''}">
+	                    </div>
+	                    <div class="input_block_zakaz">
+							<input type="text" id="phone" placeholder="Телефон"
+	                               name="phone" value="{$form.phone}"
+	                               class="form-control{($field in list $errors) ? ' error' : ''}">
+	                    </div>
+	                    <div class="input_block_zakaz">
+							<input type="text" id="street" placeholder="Улица"
+	                               name="street" value="{$form.street}"
+	                               class="form-control{($field in list $errors) ? ' error' : ''}">
+	                    </div>
+	                    <div class="dom_kvartira">
+	                    	<div class="input_block_mini">
+							<input type="text" id="building" placeholder="Дом"
+	                               name="building" value="{$form.building}"
+	                               class="form-control{($field in list $errors) ? ' error' : ''}">
+	                    	</div>
+	                    	<div class="input_block_mini">
+							<input type="text" id="room" placeholder="Квартира"
+	                               name="room" value="{$form.room}"
+	                               class="form-control{($field in list $errors) ? ' error' : ''}">
+	                    	</div>
+	                    </div>
+					<div class="vid_dostavki">
+						<div class="text_vid_dostavki">Вариант доставки</div>
+						<div class="col-sm-6">
+		                    {foreach $deliveries as $delivery index=$index}
+		                        {var $checked = !($order.delivery in keys $deliveries) && $index == 0 || $delivery.id == $order.delivery}
+		                        <div class="checkbox">
+		                            <label class="delivery input-parent">
+		                                <input type="radio" name="delivery" value="{$delivery.id}" id="delivery_{$delivery.id}"
+		                                       data-payments="{$delivery.payments | json_encode}"
+		                                        {$checked ? 'checked' : ''}>
+		                                {if $delivery.logo?}
+		                                    <img src="{$delivery.logo}" alt="{$delivery.name}" title="{$delivery.name}"/>
+		                                {else}
+		                                    {$delivery.name}
+		                                {/if}
+		                                {if $delivery.description?}
+		                                    <p class="small">
+		                                        {$delivery.description}
+		                                    </p>
+		                                {/if}
+		                            </label>
+		                        </div>
+		                    {/foreach}
+		                </div>
+						<div class="dostavka_zakaz">Стоимоcть доставки 100р. При заказе от 500р доставка <span>бесплатная</span>!</div>
+					</div>
+					<div class="commentariy">
+	                    <textarea name="comment" id="comment" placeholder="Комментарий" class="form-control{('comment' in list $errors) ? ' error' : ''}">{$form.comment}</textarea>
+	        		</div>
+					</form>
+				</div>
+				<div class="block_zakaz2">
+					<div class="sostav_zakaza">
+						<div class="text_sostava_zakaza">Состав заказа:</div>
+						<table class="sostav_table">
+							<tbody>
+								<tr>
+									<td>Дабл делюкс</td>
+									<td>
+										<input type="number" name="count" value="{$product.count}"
+                                               class="input-sm form-control"/>
+									</td>
+									<td class="sostav_price">179<span><img src="/static/img/rub-white.png" alt=""></span></td>
+								</tr>
+								<tr>
+									<td>Дабл делюкс</td>
+									<td>1</td>
+									<td class="sostav_price">179<span><img src="/static/img/rub-white.png" alt=""></span></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="itog_sostav_zakaza">
+							<div class="itog_sostav_zakaza_text">Сумма к оплате</div>
+							<div class="itog_sostav_zakaza_summa">
+								358
+								<div><img src="/static/img/rub-white.png" alt=""></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="nav_zakaz">
+				<a class="back_to_basket" href="">Назад в корзину</a>
+				<button type="submit" name="ms2_action" value="order/submit" class="order_submit ms2_link">Оформить заказ</button>
+			</div>
+		</div>
+	</div>
+</main>
+<footer>
+	<div class="wrapper">
+		<div class="footer_info">
+			<div class="footer_block1">
+				<div class="social_footer">
+						<a href="#"><img src="/static/img/vk.png" alt=""></a>
+						<a href="#"><img src="/static/img/inst.png" alt=""></a>
+						<a href="#"><img src="/static/img/inst.png" alt=""></a>
+				</div>
+				<div class="nav_footer">
+					<a href="#">О нас</a>
+					<a href="#">Контакты</a>
+					<a href="#">Политика конфидециальности</a>
+				</div>	
+			</div>
+			<div class="footer_block2">
+				<div class="footer_contact">
+						<div class="footer_number">8 800 200-20-20</div>
+						<div class="footer_mail">info@komveer.ru</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer_info2">
+			<p>©2019, KONVEER</p>
+			<img src="/static/img/logotip2.png" alt="">
+			<p>Разработано DokinLab</p>
+		</div>
+	</div>
+	<div class="footer-line"></div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/static/js/script.js"></script>
+</body>
+</html>
