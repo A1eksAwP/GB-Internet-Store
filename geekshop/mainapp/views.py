@@ -1,22 +1,29 @@
 from email.charset import Charset
 import json
 from django.shortcuts import render
+from .models import ProductCategory, Product
 
 # Create your views here.
 
 def main(request):
     with open ('./products.json', 'r', encoding='utf-8') as file:
-        products = json.load(file)
+        jsonproducts = json.load(file)
+
+    products = Product.objects.all()
+    categorys = ProductCategory.objects.all()
+
     return render(request, 'mainapp/index.html', context = {
         'title':'Главная',
-        'products': products
+        'products': jsonproducts,
+        'foods': products,
+        'categorys': categorys
     })
 
-    
-
 def products(request):
-    return render(request, 'mainapp/products.html')
-    
+    return render(request, 'mainapp/index.html')
+
+def category(request, pk):
+    return products(request)
 
 def contact(request):
     return render(request, 'mainapp/contact.html', context = {
@@ -34,18 +41,6 @@ def cart(request):
     })
 
 def base(request):
-    menu = [
-            {'name':'Шаурма1'},
-            {'name':'Шаурма2'},
-            {'name':'Шаурма3'},
-            {'name':'Шаурма4'},
-            {'name':'Шаурма5'},
-            {'name':'Шаурма6'},
-            {'name':'Шаурма7'},
-            {'name':'Шаурма8'},
-            {'name':'Шаурма9'},
-        ]
     return render(request, 'mainapp/base.html', context= {
-        'menu': menu,
         'title':'!секретная страница!'
     })

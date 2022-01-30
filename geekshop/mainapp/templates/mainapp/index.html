@@ -32,7 +32,7 @@
 	<div class="line_brand"><img src="{% static "img/logotip.png" %}" alt=""></div>
 	<div class="products_block">
 		<div class="wrapper">
-			<h2>Бургеры</h2>
+			<h2>Самое популярное</h2>
 			<div class="item_product">
 				<div class="product">
 					<div class="block_pruduct1">
@@ -52,6 +52,28 @@
 						</div>
 					</div>
 				</div>
+
+{% for food in foods %}
+  <div class="product">
+	<div class="block_pruduct1">
+		<div class="product_img"><img src="/media/{{ food.image }}" alt="{{ food.short_desc }}"></div>
+		<div class="basket_img"></div>
+	</div>
+	<div class="block_pruduct2">
+		<div class="name_product">
+			<div class="name"><p>{{ food.name }}</p></div>
+			<div class="dop_inf"><img src="{% static "img/dop_inf.png" %}" alt="{{ food.short_desc }}" title="{{ food.short_desc }}"></div>
+		</div>
+		<div class="description_product"><p>{{ food.description }}</p></div>
+		<div class="price_product">
+			<p>{{ food.price }}</p>
+			<img src="{% static "img/rub.png" %}" alt="">
+			<div class="knopka_basket" href="#">В корзину</div>
+		</div>
+	</div>
+	</div>
+{% endfor %}
+
 				<div class="product">
 					<div class="block_pruduct1">
 						<div class="product_img"><img src="{% static "img/burger.jpg" %}" alt=""></div>
