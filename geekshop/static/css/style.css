@@ -225,13 +225,14 @@ nav{
 a.basket_button{
 	width: 105px;
 	height: 40px;
-	display: flex;	
+	display: flex;
 	border-radius: 8px;
 	background: #0000fe;
 	align-items: center;
 	color: #fff;
 	font-size: 14px;
 	justify-content: center;
+	margin-left: 10px;
 }
 .basket_button img{
 	padding-right: 10px;
@@ -646,8 +647,8 @@ input[type=number]::-webkit-outer-spin-button {
 .contacts{
 	display: flex;
 	width: 100%;
-	justify-content: flex-start;
 	margin-bottom: 60px;
+	justify-content: space-evenly;
 }
 .contact{
 	max-width: 270px;
