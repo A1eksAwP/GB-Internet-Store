@@ -1,0 +1,83 @@
+{% block modal %}
+<div id="modal1" class="modal_div">
+    <span class="modal_close"><img src="/static/img/closeX.png" alt=""></span>
+    <form action="">
+        <div class="dostavka">
+            <div class="text_dostavka">Куда доставить?</div>
+            <div class="block_button">
+                <a class="na_dostavku open_modal" href="#modal1">Доставка</a>
+                <a class="samovivoz open_modal" href="#modal2">Самовывоз</a>
+            </div>
+            <div class="street_home">
+                <div class="street">
+                    <input type="text" id="street" placeholder="Улица" name="street" value>
+                </div>
+                <div class="home">
+                    <input type="text" id="building" placeholder="Дом" name="building" value>
+                </div>
+            </div>
+            <div class="other">
+                <div class="other_field">
+                    <input type="text" id="" placeholder="Квартира" name="" value>
+                </div>
+                <div class="other_field">
+                    <input type="text" id="" placeholder="Подъезд" name="" value>
+                </div>
+                <div class="other_field">
+                    <input type="text" id="" placeholder="Код двери" name="" value>
+                </div>
+                <div class="other_field">
+                    <input type="text" id="" placeholder="Этаж" name="" value>
+                </div>
+            </div>
+            <div class="comment">
+                <textarea name="comment" id="comment" placeholder="Комментарий"></textarea>
+            </div>
+            <button class="confirm_address">Подтвердить адресс</button>
+        </div>
+    </form>
+    </div>
+    <div id="modal2" class="modal_div1"> 
+    <span class="modal_close"><img src="/static/img/closeX.png" alt=""></span> 
+    <form action="">
+        <div class="dostavka">
+            <div class="text_dostavka">Куда доставить?</div>
+            <div class="block_button">
+                <a class="na_dostavku1 open_modal" href="#modal1">Доставка</a>
+                <a class="samovivoz1 open_modal" href="#modal2">Самовывоз</a>
+            </div>
+            <div class="samovivoz_adress">
+                <label>
+                    <span class="text_adress">г. Самара<br>ул. Дачная д.2<br>корпус 2<br>10:00-22:00</span>
+                </label>	
+            </div>
+            <button class="choose">Выбрать</button>
+        </div>
+    </form>
+    </div>
+    <div id="overlay"></div>
+    <div id="openModal" class="modalDialog">
+        <div class="wrapper">
+            <div class="modalHeader">
+                <div class="block-logo">
+                    <img src="/static/img/logo2.png" alt="">
+                    <img src="/static/img/konveer-modal.png" alt="">
+                </div>
+                <a href="#close" class="close"><img src="/static/img/close.png" alt=""></a>
+            </div>
+            <div class="modalContacts">
+                <a href="/about/">О нас</a>
+                <a href="/contact/">Контакты</a>
+            </div>
+            <div class="modalSocial">
+                <div class="numberModal">8 800 200-20-20</div>
+                <div class="socialModal">
+                    <a href="#"><img src="/static/img/vk.png" alt=""></a>
+                    <a href="#"><img src="/static/img/inst.png" alt=""></a>
+                    <a href="#"><img src="/static/img/inst.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endblock %}

@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -10,6 +11,8 @@
 	<meta name="keywords" content="">
 </head>
 <body>
+	{% include 'mainapp/include/cartmodal.html' %}
+	{% include 'authapp/include/loginmodal.html' %}
 	<header>
 		<div class="head_block1">
 			<div class="wrapper_header">
@@ -32,7 +35,7 @@
 						</div>
 					</div>
 					<div class="head_block1_top3">
-						<div class="number"><p>8 800 200-20-20</p></div>
+						<div class="number"><p>8 812 000-00-00</p></div>
 					</div>
 				</div>
 			</div>
@@ -44,11 +47,26 @@
 					<nav>
 						<div class="topnav" id="myTopnav">
 
-							<a href="#">{{ products.0.description }}</a>
 							{% for category in categorys %}
 							<a href="#">{{ category.name }}</a>
 							{% endfor %}
 							<a href="#">{{ title }}</a>
+
+							{% if user.is_authenticated %}
+							<li>
+								<a href="{% url 'auth:edit' %}">
+									{{ user.first_name|default:'Пользователь' }}          
+								</a>
+							</li>
+							{% endif %}  
+							<li>
+								{% if user.is_authenticated %}
+								<a href="{% url 'auth:logout' %}">Выйти</a>
+								{% else %}
+								<a href="{% url 'auth:login' %}">Войти (стандартно)</a>
+								{% endif %}
+							</li>
+							<a class="open_modal" href="#modal3">Войти (модально)</a>
 
 						</div>
 					</nav>
@@ -56,11 +74,15 @@
 					<div class="head_block1_bottom1">
 						<div class="basket">
 							<div class="basket_price">
-								<p>500 руб</p>
-								<span><input type="text" value="0"> товара</span>
+								<div class="basket_price_cost">
+									<p>5000</p><span>руб</span>
+								</div>
+								<div class="basket_price_count">
+									<p>10</p><span>товаров</span>
+								</div>		
 							</div>
-							<img class="arrow" src="{% static "img/arrow.png" %}" alt="">
-							<a href="#" class="basket_button">
+							<button href="#modal1" class="arrow open_modal"><img src="{% static "img/arrow.png" %}" alt=""></button>
+							<a href="{% url 'cart' %}" class="basket_button">
 								<img src="{% static "img/basket.png" %}" alt="">
 								<p>Корзина</p>
 							</a>

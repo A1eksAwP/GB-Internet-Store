@@ -1,6 +1,5 @@
 [
     {
-        
         "category":"Бургеры",
         "name": "EmpireState",
         "image": "products_images/the-empire-state-burger.jpg",
@@ -28,7 +27,7 @@
         "quantity": 853
     },
     {
-        "category": "Шаверма",
+        "category": "Шаурма",
         "name": "Shawa Baff",
         "image": "products_images/shawrma.jpg",
         "short_desc": "Just Do It!",
