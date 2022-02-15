@@ -1,7 +1,7 @@
 *{
 	/* padding: 0; */
 	margin: 0;
-	user-select: none;
+	/* user-select: none; */
 }
 a{
 	text-decoration: none;
@@ -70,7 +70,7 @@ a.logo2{
 	font-weight: bold;
 	font-size: 18px;
 	color: #fe0002;
-	padding: 12px 0 0 30px;
+	padding: 22px 0 0 30px;
 }
 .head_block1_top2{
 	width: 280px;
@@ -115,7 +115,7 @@ a.logo2{
 }
 .head_block1_bottom1{
 	display: flex;
-	width: 215px;
+	width: 270px;
 }
 .wrapper_menu{
 	width: 65%;
@@ -149,27 +149,31 @@ nav{
 .topnav a{
 	color: #000;
 	cursor: pointer;
-    position:relative;
-    display: flex;
-    margin-right:5px;
-    white-space: nowrap;
+	position:relative;
+	display: block;
+	margin-right:5px;
+	white-space: nowrap;
 }
 .topnav a:after {
-    background-color: #0000fe;
+    background-color: #673ab7;
     display: flex;
     content: "";
     height: 5px;
     width: 0%;
     left:50%;
     position:absolute;
-    top: 35px;
-    transition: width .3s ease-in-out;
+    top: 34px;
+    transition: width .3s ;
     -webkit-transform:translateX(-50%);
     transform:translateX(-50%);
 }
+.topnav .nav-active::after {
+		width: 100%;
+		transition: width .3s ease-in-out;
+	}
 .topnav a:hover:after,
 .topnav a:focus:after {
-    width: 100%;
+    width: 90%;
 }
 .number{
 	width: 100%;
@@ -207,6 +211,7 @@ nav{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
+	justify-content: center;
 }
 .basket_price_count p{
 	display: flex;
@@ -339,10 +344,16 @@ a.basket_button{
 .products_block{
 	padding-top: 125px;
 }
-main h2{
+h2{
 	font-size: 50px;
 	font-weight: bold;
 	padding-bottom: 60px;
+}
+sort_category_name{
+	font-size: 50px;
+	font-weight: bold;
+	padding-bottom: 60px;
+	text-align:center;
 }
 main h3{
 	font-size: 25px;
@@ -355,6 +366,14 @@ main h3{
 	flex-wrap: wrap;
 	justify-content: flex-start;
 }
+.sort_item_product {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 .product{
 	max-width: 260px;
 	min-width: 260px; 
@@ -364,6 +383,10 @@ main h3{
 	padding-bottom: 30px;
 	margin: 0 10px;
 	
+}
+.products_list {
+	display: flex;
+	flex-direction: column;
 }
 .block_pruduct1{
 	width: 100%;
@@ -1166,6 +1189,11 @@ table.tablebasket{
 	height: 60px;
     background-image: url(../img/footer.jpg);
     border-radius: 0 0 10px 10px;
+}
+.title {
+	display:flex;
+	justify-content: center;
+	margin-top: 20px;
 }
 .title_basket{
 	display: flex;

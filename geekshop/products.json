@@ -1,32 +1,38 @@
 [
     {
-        "name": "Привет, цикл for!",
-        "price": "999",
-        "description": "Я файл из *.json!",
-        "image": "/static/img/dop_inf.png"
-    },    
+        "category":"Бургеры",
+        "name": "EmpireState",
+        "image": "products_images/the-empire-state-burger.jpg",
+        "short_desc": "Американская мечта",
+        "description": "Вы ведь всегда мечтали почувствовать настоящий вкус Нью-Йорка?",
+        "price": 460.00,
+        "quantity": 26
+    },  
     {
-        "name": "Шаурма",
-        "price": "999",
-        "description": "Я файл из *.json! (А вообще, тут должен был быть цикл for)",
-        "image": "/static/img/dop_inf.png"
-    },   
+        "category": "Нагетсы",
+        "name": "CFG",
+        "image": "products_images/chicken.jpg",
+        "short_desc": "Сконфигурируй свой сытости",
+        "description": "Вам надоел KFC? Попробуйте наш КФГ - конфигуратор твоей собственной сытости!",
+        "price": "299.00",
+        "quantity": 7
+    },
     {
-        "name": "Бургеры",
-        "price": "999",
-        "description": "Я файл из *.json! (А вообще, тут должен был быть цикл for)",
-        "image": "/static/img/dop_inf.png"
-    },   
+        "category": "Картофель",
+        "name": "Potatoes Four",
+        "image": "products_images/potatoes.jpg",
+        "short_desc": "Четвертая версия!",
+        "description": "Картофель фри уже нынче не в моде, попробуй нашу четвертую версию!",
+        "price": "60.00",
+        "quantity": 853
+    },
     {
-        "name": "Картофель",
-        "price": "999",
-        "description": "Я файл из *.json! (А вообще, тут должен был быть цикл for)",
-        "image": "/static/img/dop_inf.png"
-    },   
-    {
-        "name": "Нагетсы",
-        "price": "999",
-        "description": "Я файл из *.json! (А вообще, тут должен был быть цикл for)",
-        "image": "/static/img/dop_inf.png"
-    }   
+        "category": "Шаурма",
+        "name": "Shawa Baff",
+        "image": "products_images/shawrma.jpg",
+        "short_desc": "Just Do It!",
+        "description": "Шайла Баффу вряд ли доводилось есть такую великую вещь, не зря же ее называют пищей богов!",
+        "price": "150.00",
+        "quantity": 8
+    }
 ]
