@@ -1,0 +1,14 @@
+      <a href="{% url 'products:category' 0 %}"
+         class="{% if request.resolver_match.kwargs.pk|add:'0' == 0 %}
+                  nav-active
+                {% endif %}">
+        Всё меню
+      </a>
+    {% for link in links_menu %}
+        <a href="{% url 'products:category' link.pk %}"
+           class="{% if request.resolver_match.kwargs.pk|add:'0' == link.pk %}
+                    nav-active
+                  {% endif %}">
+          {{ link.name }}
+        </a>
+    {% endfor %}
