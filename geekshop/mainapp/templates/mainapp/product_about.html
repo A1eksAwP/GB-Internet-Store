@@ -1,0 +1,30 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+
+{% block content%}
+
+<div class="products_list">
+    <div class="title clearfix">
+      <h2 class="sort_category_name">
+        Продукт: "{{ item.name|title }}"
+      </h2>
+    </div>
+    <div class="sort_item_product">
+<div class="product_about">
+    <div class="block_pruduct_about1">
+        <div class="product_img"><img src="/media/{{ item.image }}" alt="{{ item.short_desc }}"></div>
+        <div class="basket_img"></div>
+    </div>
+    <div class="block_pruduct_about2">
+       
+        <div class="centre"><p>"{{ item.short_desc }}" (c)</p></div>
+        <div class="zoom"><p>{{ item.description }}</p></div>
+        <div class="price_product">
+            <p class="zoom">{{ item.price }}<img src="{% static "img/rub.png" %}" alt=""></p>
+            <a class="knopka_basket_about zoom" href="{% url 'cart:add' item.pk %}">В корзину</a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -27,11 +27,7 @@
                 <div class="price_product">
                     <p>{{ product.price }}</p>
                     <img src="{% static "img/rub.png" %}" alt="">
-                    {% if user.is_authenticated %}
-                    <a class="knopka_basket" href="{% url 'usercart:add' product.pk %}">В корзину</a>
-                    {% else %}
-                    <a class="knopka_basket" href="{% url 'auth:login' %}">В корзину</a>
-                    {% endif %}
+                    <a class="knopka_basket" href="{% url 'products:product' product.pk %}">Подробнее</a>
                 </div>
             </div>
             </div>

@@ -11,7 +11,7 @@
 	<meta name="keywords" content="">
 </head>
 <body>
-	{% include 'mainapp/include/cartmodal.html' %}
+	{% include 'cartapp/include/inc_cartmodal.html' %}
 	{% include 'authapp/include/loginmodal.html' %}
 	<header>
 		<div class="head_block1">
@@ -24,9 +24,9 @@
 						</a>
 						<div class="head_block1_top2">
 							<div class="social_head">
-								<a href="#"><img src="{% static "img/vk.jpg" %}" alt=""></a>
-								<a href="#"><img src="{% static "img/inst.jpg" %}" alt=""></a>
-								<a href="#"><img src="{% static "img/inst.jpg" %}" alt=""></a>
+								<a href="#"><img src="{% static "img/vk.svg" %}" alt=""></a>
+								<a href="#"><img src="{% static "img/inst.svg" %}" alt=""></a>
+								<a href="#"><img src="{% static "img/inst.svg" %}" alt=""></a>
 							</div>
 							<div class="head_menu">
 									<a href="{% url 'about' %}">О нас</a>
@@ -46,10 +46,6 @@
 					</a>
 					<nav>
 						<div class="topnav" id="myTopnav">
-							<!-- <a href="#">Все</a>
-							{% for category in categorys %}
-							<a href="#">{{ category.name }}</a>
-							{% endfor %} -->
 							{% include 'mainapp/include/categories_menu.html' %}
 							{% if user.is_authenticated %}
 								<a href="{% url 'auth:edit' %}">
@@ -66,27 +62,9 @@
 						</div>
 					</nav>
 					<div class="burger_button"><img src="{% static "img/=.png" %}" alt=""></div>
-					<div class="head_block1_bottom1">
-						<div class="basket">
-							<div class="basket_price">
-								{% if user.is_authenticated %}
-								<div class="basket_price_cost">
-									<a href="{% url 'usercart:view' %}" class=""></a>
-									<p></p><span>{{ user.usercart.sum }} руб</span>
-								</div>
-								<div class="basket_price_count">
-									<p>{% if cart %} {{ user.usercart.count }}</p><span>товаров</span> {% else %} корзина пуста {% endif %}
-								</div>
-									
-							</div>
-							<button href="#modal1" class="arrow open_modal"><img src="{% static "img/arrow.png" %}" alt=""></button>
-							<a href="{% url 'cart' %}" class="basket_button">
-								<img src="{% static "img/basket.png" %}" alt="">
-								<p>Корзина</p>
-							</a>
-								{% endif %}	
-						</div>
-					</div>
+					{% block get_sum_cart %}
+						{% include 'cartapp/include/inc_cart_top_sum.html' %}
+					{% endblock %}
 				</div>
 			</div>
 		</div>
@@ -101,9 +79,9 @@
             <div class="footer_info">
                 <div class="footer_block1">
                     <div class="social_footer">
-                            <a href="#"><img src="{% static "img/vk.png" %}" alt=""></a>
-                            <a href="#"><img src="{% static "img/inst.png" %}" alt=""></a>
-                            <a href="#"><img src="{% static "img/inst.png" %}" alt=""></a>
+                            <a href="#"><img src="{% static "img/vk.svg" %}" alt=""></a>
+                            <a href="#"><img src="{% static "img/inst.svg" %}" alt=""></a>
+                            <a href="#"><img src="{% static "img/inst.svg" %}" alt=""></a>
                     </div>
                     <div class="nav_footer">
                         <a href="{% url 'about' %}">О нас</a>
@@ -127,5 +105,6 @@
     </footer>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static "js/cart_edit_script.js" %}"></script>
 <script src="{% static "js/script.js" %}"></script>
 </html>

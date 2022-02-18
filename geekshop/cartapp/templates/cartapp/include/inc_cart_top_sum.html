@@ -1,0 +1,24 @@
+{% load static %}
+{% block get_sum_cart %}
+<div class="head_block1_bottom1">
+    <div class="basket">
+        <div class="basket_price">
+            {% if user.is_authenticated %}
+            <div class="basket_price_cost">
+                <a href="{% url 'cart:view' %}" class=""></a>
+                <p></p><span>{{ user.cart.sum }} руб</span>
+            </div>
+            <div class="basket_price_count">
+                <p>{% if cart %} {{ user.cart.count }}</p><span>товара</span> {% else %} корзина пуста {% endif %}
+            </div>
+                
+        </div>
+        <button href="#modal1" class="arrow open_modal"><img src="{% static "img/arrow.png" %}" alt=""></button>
+        <a href="{% url 'cart:view' %}" class="basket_button">
+            <img src="{% static "img/basket.png" %}" alt="">
+            <p>Корзина</p>
+        </a>
+            {% endif %}	
+    </div>
+</div>
+{% endblock %}

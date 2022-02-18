@@ -1,6 +1,0 @@
-{% for item in cart %}
-   {{item}}; <a href="{% url 'usercart:remove' item.product.pk  %}">Удалить из корзины</a>
-</br>
-{% endfor %}
-</br>
-В корзине {{user.usercart.count}} наименования товаров на сумму {{user.usercart.sum}} рублей!

@@ -14,6 +14,8 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user and user.is_active:
             auth.login(request, user)
+            if 'next' in request.GET.keys():
+                return HttpResponseRedirect(request.GET['next'])
             return HttpResponseRedirect(reverse('main'))
 
     content = {'title': title, 'login_form': login_form}
