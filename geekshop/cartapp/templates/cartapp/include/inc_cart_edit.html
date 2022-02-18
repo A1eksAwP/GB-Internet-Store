@@ -1,0 +1,40 @@
+{% load static %}
+<script src="{% static "js/script.js" %}"></script>
+<div class="wrapper-basket">
+			<div class="big-basket">
+				<h2>Корзина</h2>
+				<form action="">
+					<table class="tablebasket tablebasket_mob">
+						<tbody>
+							{% for item in user.cart.all %}
+							<tr>
+								<td>{{item.product.name}} (1шт = {{item.product.price}}<span><img src="{% static "img/rub.png" %}" alt=""></span>)</td>
+								<td>
+									<div class="btn-plus-minus">
+										<a class="btn-minus" href=""><img src="{% static "img/-.png" %}" alt=""></a>
+											<input type="number"  min="0" max="{{item.product.quantity}}" name="{{item.pk}}" value="{{ item.quantity }}">
+											<a class="btn-plus" href=""><img src="{% static "img/+.png" %}" alt=""></a>
+										</div>
+								</td>
+								<td class="rub-img"> {{item.cost}} <span><img src="{% static "img/rub.png" %}" alt=""></span></td>
+								<td><a href="{% url 'cart:remove' item.pk  %}">Удалить <img src="{% static "img/X.png" %}" alt=""></a></td>
+							</tr>
+						{% endfor %}	
+						</tbody>
+					
+					</table>
+				</form>
+			</div>
+			{% if user.cart %}
+			<div class="order_price">Общая сумма заказа:<span>{{ user.cart.sum }}</span><img src="{% static "img/rub.png" %}" alt=""></div>
+			<div class="nav_basket">
+				<a href="{% url 'main' %}" class="back_menu">Вернуться в меню</a>
+				<a href="#modal1" class="to_order open_modal">Заказать</a>
+			</div>
+			{% else %}
+			<div class="order_price">Ваша корзина пуста!</div>
+			<div class="nav_basket">
+				<a href="{% url 'main' %}" class="back_menu">Вернуться в меню</a>
+			</div>
+			{% endif %}
+		</div>
