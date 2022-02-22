@@ -28,13 +28,6 @@ def logout(request):
 
 
 def register(request):
-    return HttpResponseRedirect(reverse('main'))
-    
-    
-def edit(request):
-    return HttpResponseRedirect(reverse('main'))
-
-def register(request):
     title = 'регистрация'
     
     if request.method == 'POST':
