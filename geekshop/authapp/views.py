@@ -4,7 +4,7 @@ from django.contrib import auth
 from django.urls import reverse
 
 def login(request):
-    title = 'вход'
+    title = 'Вход'
     
     login_form = ShopUserLoginForm(data=request.POST)  
     if request.method == 'POST' and login_form.is_valid():
@@ -28,7 +28,7 @@ def logout(request):
 
 
 def register(request):
-    title = 'регистрация'
+    title = 'Регистрация'
     
     if request.method == 'POST':
         register_form = ShopUserRegisterForm(request.POST, request.FILES)
@@ -45,7 +45,7 @@ def register(request):
 
 
 def edit(request):
-    title = 'редактирование'
+    title = 'Редактирование пользователя'
     
     if request.method == 'POST':
         edit_form = ShopUserEditForm(request.POST, request.FILES, instance=request.user)

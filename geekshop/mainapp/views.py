@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from cartapp.models import Cart
 from .models import ProductCategory, Product
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -42,25 +43,38 @@ def get_product(request, store_id):
     return render(request, 'mainapp/product_about.html', content)
 
 @login_required
-def products(request, pk=0):
+def products(request, pk=0, page=1):
     title = 'продукты'
     links_menu = ProductCategory.objects.all()
     cart = Cart.objects.filter(user=request.user)
     
     if pk is not None:
         if pk == 0:
-            products = Product.objects.all().order_by('price')
-            category = {'name': 'все'}
+            products = Product.objects.filter(category__is_active=True).order_by('price')
+            category = {
+                'pk': 0,
+                'name': 'все',
+                }
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
             products = Product.objects.filter(category__pk=pk).order_by('price')
+
+        paginator = Paginator(products, 2)
+        try:
+            products_paginator = paginator.page(page)
+        except PageNotAnInteger:
+            products_paginator = paginator.page(1)
+        except EmptyPage:
+            products_paginator = paginator.page(paginator.num_pages)
 
         content = {
             'title': title,
             'links_menu': links_menu,
             'category': category,
-            'products': products,
+            'products': products_paginator,
+            'page': products_paginator,
             'cart': cart,
+            'paginator': paginator,
         }
 
         return render(request, 'mainapp/products_list.html', content)

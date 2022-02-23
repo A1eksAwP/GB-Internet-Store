@@ -1,47 +1,47 @@
 {% extends 'adminapp/base.html' %}
 {% load static %}
+{% load my_tags %}
 
-{% block content %}
+{% block admin %}
   <div class="products_list">
     <button class="new_product">
       <a href={% url 'admin:product_create' category.pk %}>
         новый продукт
       </a>
     </button>
-		
-    {% for object in objects %}
+    {% for obj in object.content %}
       <div class="product_record">
         <img 
-          src="/media/{{object.image|default:'products_images/default.jpg'}}"
-          alt="{{ object.name }}">
+          src="{{ obj.image|media_folder_products }}"
+          alt="{{ obj.name }}">
         <div class="product_name">
-          {{ object.name|title }}
+          {{ obj.name|title }}
         </div>
         <div class="product_actions">
           <button>
-            <a href={% url 'admin:product_read' object.pk %}>
+            <a href={% url 'admin:product_read' obj.pk %}>
               подробнее
             </a>
           </button>
           <button>
-            <a href={% url 'admin:product_update' object.pk %}>
+            <a href={% url 'admin:product_update' obj.pk %}>
               редактировать
             </a>
           </button>
           <button>
-            <a href={% url 'admin:product_delete' object.pk %}>
+            <a href={% url 'admin:product_delete' obj.pk %}>
               удалить
             </a>
           </button>
         </div>
         <div class="summary">
           <b>цена</b>
-          <p>{{ object.price }} руб</p>
+          <p>{{ obj.price }} руб</p>
           <b>количество</b>
-          <p>{{ object.quantity }}</p>
+          <p>{{ obj.quantity }}</p>
         </div>
         <div class="product_desc">
-          {{ object.short_desc|title }}
+          {{ obj.short_desc|title }}
         </div>
       </div>
     {% endfor%}

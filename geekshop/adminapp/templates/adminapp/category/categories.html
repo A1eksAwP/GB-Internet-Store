@@ -1,15 +1,15 @@
 {% extends 'adminapp/base.html' %}
 {% load static %}
 
-{% block content %}
+{% block admin %}
   <div class="categories_list">
     <button class="new_category">
       <a href={% url 'admin:category_create' %}>
         новая категория
       </a>
     </button>
-		
-    {% for object in objects %}
+  
+    {% for object in object_list %}
         <div class="category_record 
             {% if not object.is_active %}
                 not_active
@@ -19,17 +19,17 @@
         </div>
         <div class="category_actions">
           <button>
-            <a href={% url 'admin:products' object.pk %}>
+            <a href={% url 'admin:products' object.id %}>
               товары категории
             </a>
           </button>
           <button>
-            <a href={% url 'admin:category_update' object.pk %}>
+            <a href={% url 'admin:category_update' object.id %}>
               редактировать
             </a>
           </button>
           <button>
-            <a href={% url 'admin:category_delete' object.pk %}>
+            <a href={% url 'admin:category_delete' object.id %}>
               удалить
             </a>
           </button>
@@ -38,6 +38,7 @@
           {{ object.description|title }}
         </div>
       </div>
+    </br>
     {% endfor%}
   </div>
 {% endblock %}
