@@ -1,6 +1,6 @@
 import json
+from turtle import title
 from django.shortcuts import get_object_or_404, render
-from cartapp.models import Cart
 from .models import ProductCategory, Product
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -11,32 +11,26 @@ def main(request):
     with open ('./products.json', 'r', encoding='utf-8') as file:
         jsonproducts = json.load(file)
 
+    title = 'главная'
     products = Product.objects.all()
     categorys = ProductCategory.objects.all()
-    if request.user.is_authenticated:
-        cart = Cart.objects.filter(user=request.user)
-    else:
-        cart = ""
 
     return render(request, 'mainapp/index.html', context = {
-        'title':'Главная',
+        'title': title,
         'products': jsonproducts,
         'foods': products,
         'categorys': categorys,
-        'cart': cart,
     })
     
 @login_required
 def get_product(request, store_id):
     title = 'Страница продукта'
     products = Product.objects.all()
-    cart = Cart.objects.filter(user=request.user)
     item = get_object_or_404(Product, pk=store_id)
     content = {
         'title': title,
         'category': category,
         'products': products,
-        'cart': cart,
         'item': item,
     }
 
@@ -46,8 +40,7 @@ def get_product(request, store_id):
 def products(request, pk=0, page=1):
     title = 'продукты'
     links_menu = ProductCategory.objects.all()
-    cart = Cart.objects.filter(user=request.user)
-    
+
     if pk is not None:
         if pk == 0:
             products = Product.objects.filter(category__is_active=True).order_by('price')
@@ -73,7 +66,6 @@ def products(request, pk=0, page=1):
             'category': category,
             'products': products_paginator,
             'page': products_paginator,
-            'cart': cart,
             'paginator': paginator,
         }
 
