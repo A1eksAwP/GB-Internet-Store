@@ -1,3 +1,6 @@
+from base64 import encode
+import hashlib
+import os
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .models import ShopUser
@@ -31,6 +34,15 @@ class ShopUserRegisterForm(UserCreationForm):
             raise forms.ValidationError("Вы слишком молоды!")
 
         return data
+
+    def save(self):
+        user = super().save()
+        user.is_active = False
+        user.activation_key = hashlib.md5(
+            user.email.encode('utf-8')+os.urandom(64)
+            ).hexdigest()
+        user.save()
+        return user
 
 class ShopUserEditForm(UserChangeForm):
     class Meta:
