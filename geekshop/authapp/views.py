@@ -1,10 +1,16 @@
 import re
 from django.shortcuts import get_object_or_404, render, HttpResponseRedirect
-from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm, ShopUserEditForm
+from authapp.forms import (
+    ShopUserLoginForm, 
+    ShopUserRegisterForm, 
+    ShopUserEditForm,
+    ShopUserProfileEditForm
+    )
 from django.contrib import auth
 from django.urls import reverse
 from .utils import send_verify_mail
 from .models import ShopUser
+from django.db import transaction
 
 def login(request):
     title = 'Вход'
@@ -48,18 +54,24 @@ def register(request):
     return render(request, 'authapp/register.html', content)
 
 
+@transaction.atomic
 def edit(request):
     title = 'Редактирование пользователя'
     
     if request.method == 'POST':
         edit_form = ShopUserEditForm(request.POST, request.FILES, instance=request.user)
-        if edit_form.is_valid():
+        profile_form = ShopUserProfileEditForm(request.POST, instance=request.user.profile)
+        if edit_form.is_valid() and profile_form.is_valid():
             edit_form.save()
+            profile_form.save()
             return HttpResponseRedirect(reverse('auth:edit'))
     else:
         edit_form = ShopUserEditForm(instance=request.user)
-    
-    content = {'title': title, 'edit_form': edit_form}
+        profile_form = ShopUserProfileEditForm(instance=request.user.profile)
+    content = {
+        'title': title, 
+        'edit_form': edit_form, 
+        'profile_form': profile_form}
     
     return render(request, 'authapp/edit.html', content)
 
