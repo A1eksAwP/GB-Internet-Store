@@ -1,5 +1,5 @@
 {% extends 'authapp/base.html' %}
-
+{% load static %}
 {% block form %}
 <form class="form-horizontal" action="{% url 'auth:login' %}" method="post">
     {% csrf_token %}
@@ -9,6 +9,7 @@
     {{ login_form.as_p }}
     <br>
     <input class="form-control" type="submit" value="Войти">
+    <a href="{% url 'social:begin' 'github' %}" class="btn"><img class="github-btn" src="{% static "img/github-sign.png" %}"></a>
 </form>
 {% endblock %}
 

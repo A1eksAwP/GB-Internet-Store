@@ -1505,6 +1505,11 @@ table.tablebasket{
 .mobile-korzina{
 	display: none;
 }
+.github-btn{
+	height: 34px;
+	display: flex;
+	margin-top: 5px;
+}
 
 @font-face{
 	font-family: 'GoshaSans';
