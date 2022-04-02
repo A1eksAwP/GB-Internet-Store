@@ -20,6 +20,9 @@ header{
 	justify-content: space-between;
 	background: #fff;
 }
+a.basket_button:hover {
+	background: #673ab7
+}
 .wrapper{
 	width: 65%;
 	margin:0 auto;
@@ -30,9 +33,9 @@ header{
 	margin:0 auto;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	flex-direction: row;
 	flex-wrap: nowrap;
+	align-items: center;
 }
 .head_block1{
 	width: 100%;
@@ -111,19 +114,11 @@ a.logo2{
 	width: 100%;
 	height: 60px;
 	background: #fff;
-	border-bottom: 1px solid #e9e9ea; 
+	border-bottom: 1px solid #e9e9ea;
 }
 .head_block1_bottom1{
 	display: flex;
 	width: 270px;
-}
-.wrapper_menu{
-	width: 65%;
-	height: 100%;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: row;
-	flex-wrap: nowrap;
 }
 .wrapper_header{
 	width: 65%;
@@ -143,16 +138,18 @@ nav{
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: bold;
 }
 .topnav a{
 	color: #000;
 	cursor: pointer;
 	position:relative;
-	display: block;
-	margin-right:5px;
+	display: flex;
+	margin-right: 5px;
 	white-space: nowrap;
+	align-items: center;
+	height: 38px;
 }
 .topnav a:after {
     background-color: #673ab7;
@@ -162,10 +159,13 @@ nav{
     width: 0%;
     left:50%;
     position:absolute;
-    top: 34px;
-    transition: width .3s ;
+    top: 45px;
+    transition: width .3s;
     -webkit-transform:translateX(-50%);
     transform:translateX(-50%);
+}
+.topnav .dropdown-item:hover:after{
+	width: 0%;
 }
 .topnav .nav-active::after {
 		width: 100%;
@@ -175,6 +175,7 @@ nav{
 .topnav a:focus:after {
     width: 90%;
 }
+
 .number{
 	width: 100%;
 	display: flex;
@@ -232,7 +233,7 @@ a.basket_button{
 	height: 40px;
 	display: flex;
 	border-radius: 8px;
-	background: #0000fe;
+	background: #6161da;
 	align-items: center;
 	color: #fff;
 	font-size: 14px;

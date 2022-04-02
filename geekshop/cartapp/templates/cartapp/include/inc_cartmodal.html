@@ -33,7 +33,8 @@
             <div class="comment">
                 <textarea name="comment" id="comment" placeholder="Комментарий"></textarea>
             </div>
-            <button class="confirm_address">Подтвердить адресс</button>
+            <button class="confirm_address">Подтвердить адрес</button>
+            <a href="{% url 'ordersapp:order_create' %}" class="to_order">Заказать</a>
         </div>
     </form>
     </div>
@@ -72,9 +73,9 @@
             <div class="modalSocial">
                 <div class="numberModal">8 800 200-20-20</div>
                 <div class="socialModal">
-                    <a href="#"><img src="/static/img/vk.png" alt=""></a>
-                    <a href="#"><img src="/static/img/inst.png" alt=""></a>
-                    <a href="#"><img src="/static/img/inst.png" alt=""></a>
+                    <a href="#"><img src="/static/img/vk.svg" alt=""></a>
+                    <a href="#"><img src="/static/img/inst.svg" alt=""></a>
+                    <a href="#"><img src="/static/img/inst.svg" alt=""></a>
                 </div>
             </div>
 
