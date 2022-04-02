@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "authapp",
     "cartapp",
     "adminapp",
+    "ordersapp",
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,8 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_GITHUB_OAUTH2_SCOPE = ['user',]
 
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+
 SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',
     'social_core.pipeline.social_auth.social_uid',
@@ -142,7 +145,7 @@ with open("./credentials.json", "r") as credentials_file:
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = "ru-ru"
+LANGUAGE_CODE = "ru"
 
 TIME_ZONE = "UTC"
 
