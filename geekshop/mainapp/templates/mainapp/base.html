@@ -54,7 +54,7 @@
 									Профиль: {{ user.first_name|default:'Пользователь' }}
 								</button>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-										<li>{% if user.is_superuser %}<a class="dropdown-item" href="{% url 'admin:users' %}">Админка</a>{% endif %}</li>
+										<li>{% if user.is_superuser %}<a class="dropdown-item" href="/admin">Админка</a>{% endif %}</li>
 										<li><a class="dropdown-item" href="{% url 'orders:orders_list' %}">Перейти к заказам</a></li>
 										<li><a class="dropdown-item" href="{% url 'auth:logout' %}">Выйти</a></li>
 									</ul>
