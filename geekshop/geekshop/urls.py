@@ -20,9 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', include('social_django.urls', namespace='social')),
-    path('admin/', include('adminapp.urls', namespace='admin')),
+    # path('admin/', include('adminapp.urls', namespace='admin')),
     path('', mainapp.main, name='main'),
     path('products/', include('mainapp.urls', namespace='products')),
     path('products/<int:pk>', mainapp.category , name='category'),

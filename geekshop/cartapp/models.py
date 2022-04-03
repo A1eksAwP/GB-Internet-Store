@@ -1,6 +1,14 @@
 from django.db import models
 from django.conf import settings
+from numpy import delete
 from mainapp.models import Product
+
+class CartQuerySet(models.query.QuerySet):
+    def delete(self, *args, **kwargs):
+        for item in self:
+            item.product.quantity += item.quantity
+            item.product.save()
+        super().delete(*args, **kwargs)
 
 class CartManager(models.Manager):
     def count(self):
@@ -20,8 +28,25 @@ class Cart(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(verbose_name='количество', default=0)
     add_datetime = models.DateTimeField(verbose_name='время', auto_now_add=True)
+
     objects = CartManager()
 
+    def save(self, *args, **kwargs):
+        if self.pk:
+            old_cart = Cart.objects.get(pk=self.pk)
+            self.product.quantity -= self.quantity - old_cart.quantity
+        else:
+            self.product.quantity -= self.quantity
+        self.product.save()
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        
+        self.product.quantity += self.quantity
+        self.product.save()
+        super().save(*args, **kwargs)
+
+    @property
     def cost(self):
         return self.product.price*self.quantity
 
